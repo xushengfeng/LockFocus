@@ -47,6 +47,10 @@ app.whenReady().then(() => {
 
     window.loadFile("index.html");
 
+    const template = [];
+    const menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
+
     ipcMain.on("full_screen", (event, v) => {
         if (v) {
             window.setAlwaysOnTop(true, "screen-saver");
