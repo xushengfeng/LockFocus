@@ -15,18 +15,16 @@ document.querySelector("#time").oninput = () => {
 };
 
 document.querySelector("button").onclick = () => {
+    count_down_ui(true);
     stop_time = new Date().getTime() + (text - 0) * 60 * 1000;
     store.set("stop_time", stop_time);
-    count_down_ui(true);
-    full_screen(true);
 };
 
 document.onkeydown = (e) => {
     if (e.key == "Enter") {
+        count_down_ui(true);
         stop_time = new Date().getTime() + (text - 0) * 60 * 1000;
         store.set("stop_time", stop_time);
-        count_down_ui(true);
-        full_screen(true);
     }
 };
 
@@ -34,12 +32,19 @@ var text = null;
 
 function count_down_ui(v) {
     if (v) {
-        text = document.querySelector("#time").innerText;
+        if (document.querySelector("#time").innerText == "") {
+            text = "0";
+            full_screen(false);
+        } else {
+            text = document.querySelector("#time").innerText;
+            full_screen(true);
+        }
+
         document.querySelector("#time").contentEditable = false;
         document.querySelector("button").disabled = true;
         document.querySelector("button").className = "dis";
         document.querySelector("#time").className = "time";
-        count_down();
+        setTimeout(count_down, 400);
     } else {
         document.querySelector("#time").contentEditable = true;
         document.querySelector("button").disabled = false;
