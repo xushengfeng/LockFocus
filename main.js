@@ -46,6 +46,16 @@ app.whenReady().then(() => {
     });
 
     window.loadFile("index.html");
+
+    ipcMain.on("full_screen", (event, v) => {
+        if (v) {
+            window.setAlwaysOnTop(true, "screen-saver");
+            window.setFullScreen(true);
+        } else {
+            window.setAlwaysOnTop(false);
+            window.setFullScreen(false);
+        }
+    });
 });
 
 app.on("will-quit", () => {});
