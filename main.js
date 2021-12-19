@@ -13,9 +13,7 @@ const {
     net,
     shell,
 } = require("electron");
-var robot = require("robotjs");
 const Store = require("electron-store");
-var screen = require("electron").screen;
 const path = require("path");
 run_path = path.resolve(__dirname, "");
 
@@ -30,8 +28,7 @@ const isFirstInstance = app.requestSingleInstanceLock();
 if (!isFirstInstance) {
     app.quit();
 } else {
-    app.on("second-instance", (event, commanLine, workingDirectory) => {
-    });
+    app.on("second-instance", (event, commanLine, workingDirectory) => {});
 }
 
 app.whenReady().then(() => {
@@ -39,7 +36,16 @@ app.whenReady().then(() => {
     Store.initRenderer();
     store = new Store();
 
+    const window = new BrowserWindow({
+        icon: path.join(run_path, "assets/icons/1024x1024.png"),
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            enableRemoteModule: true,
+        },
+    });
+
+    window.loadFile("index.html");
 });
 
-app.on("will-quit", () => {
-});
+app.on("will-quit", () => {});
