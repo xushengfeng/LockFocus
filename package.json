@@ -1,0 +1,58 @@
+{
+  "name": "lock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "build": "electron-builder",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "author": {
+    "name": "xsf",
+    "email": "xushengfeng_zg@163.com"
+  },
+  "homepage": "https://github.com/xushengfeng",
+  "license": "GPL3",
+  "dependencies": {
+    "electron-store": "^8.0.1"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.61",
+    "@electron-forge/maker-deb": "^6.0.0-beta.61",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.61",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
+    "@electron-forge/maker-zip": "^6.0.0-beta.61",
+    "electron": "^16.0.2",
+    "electron-rebuild": "^3.2.3",
+    "yarn": "^1.22.17"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "assets/icons/icon"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "name": "esearch",
+            "productName": "eSearch",
+            "categories": ["Graphics", "System", "Utility"],
+            "icon": "assets/icons/1024x1024.png"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {
+            "name": "esearch",
+            "productName": "eSearch",
+            "categories": ["Graphics", "System", "Utility"],
+            "icon": "assets/icons/1024x1024.png"
+          }
+        }
+      ]
+    }
+  }
+}
