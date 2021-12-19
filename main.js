@@ -1,18 +1,5 @@
 // Modules to control application life and create native browser window
-const {
-    app,
-    Tray,
-    Menu,
-    clipboard,
-    globalShortcut,
-    desktopCapturer,
-    BrowserWindow,
-    ipcMain,
-    dialog,
-    Notification,
-    net,
-    shell,
-} = require("electron");
+const { app, Menu, BrowserWindow, ipcMain } = require("electron");
 const Store = require("electron-store");
 const path = require("path");
 run_path = path.resolve(__dirname, "");
@@ -46,6 +33,7 @@ app.whenReady().then(() => {
     });
 
     window.loadFile("index.html");
+    if (dev) window.webContents.openDevTools();
 
     const template = [];
     const menu = Menu.buildFromTemplate(template);
