@@ -33,7 +33,7 @@ body {
 #autorun > input {
     outline: none;
 }
-.autorun_h{
+.autorun_h {
     overflow: hidden;
     height: 0;
 }
@@ -77,4 +77,11 @@ button:hover {
     width: auto !important;
     height: auto !important;
     border: none !important;
+    color: #ffe393;
+    text-shadow: 0 0 20px #d14d0f, 0 0 15px #df872e, 0 0 10px #ed8989;
+    font-weight: 100;
+}
+
+.h_mouse {
+    cursor: none;
 }

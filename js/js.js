@@ -45,6 +45,7 @@ function count_down_ui(v) {
         document.querySelector("button").className = "dis";
         document.querySelector("#time").className = "time";
         document.querySelector("#autorun").className = "autorun_h";
+        document.querySelector("body").className = "h_mouse";
         setTimeout(count_down, 400);
     } else {
         document.querySelector("#time").contentEditable = true;
@@ -52,6 +53,7 @@ function count_down_ui(v) {
         document.querySelector("button").className = "";
         document.querySelector("#time").className = "";
         document.querySelector("#autorun").className = "";
+        document.querySelector("body").className = "";
         document.querySelector("#time").innerText = text;
     }
 }
