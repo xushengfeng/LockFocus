@@ -44,12 +44,14 @@ function count_down_ui(v) {
         document.querySelector("button").disabled = true;
         document.querySelector("button").className = "dis";
         document.querySelector("#time").className = "time";
+        document.querySelector("#autorun").className = "autorun_h";
         setTimeout(count_down, 400);
     } else {
         document.querySelector("#time").contentEditable = true;
         document.querySelector("button").disabled = false;
         document.querySelector("button").className = "";
         document.querySelector("#time").className = "";
+        document.querySelector("#autorun").className = "";
         document.querySelector("#time").innerText = text;
     }
 }
@@ -72,3 +74,9 @@ function count_down() {
 function full_screen(v) {
     ipcRenderer.send("full_screen", v);
 }
+
+document.querySelector("#autorun > input").checked = store.get("autorun") || false;
+document.querySelector("#autorun > input").onclick = () => {
+    store.set("autorun", document.querySelector("#autorun > input").checked);
+    ipcRenderer.send("autorun", document.querySelector("#autorun > input").checked);
+};

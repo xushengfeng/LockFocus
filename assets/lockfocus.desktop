@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=LockFocus
+Comment=锁机以达到专注
+GenericName=lockfocus
+Exec=lockfocus %U
+Icon=lockfocus
+Type=Application
+StartupNotify=true
+Categories=Utility;Education;Office;System;
+

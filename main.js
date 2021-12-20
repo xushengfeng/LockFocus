@@ -1,4 +1,5 @@
 // Modules to control application life and create native browser window
+const { exec } = require("child_process");
 const { app, Menu, Tray, BrowserWindow, ipcMain } = require("electron");
 const Store = require("electron-store");
 const path = require("path");
@@ -58,6 +59,7 @@ app.whenReady().then(() => {
         window.loadFile("index.html");
         if (dev) window.webContents.openDevTools();
 
+        // 清除快捷键
         const template = [];
         const menu = Menu.buildFromTemplate(template);
         Menu.setApplicationMenu(menu);
@@ -75,6 +77,20 @@ app.whenReady().then(() => {
             window.setFullScreen(false);
         }
     });
+    ipcMain.on("autorun", (event, v) => {
+        if (process.platform == "linux") {
+            if (v) {
+                exec("mkdir ~/.config/autostart");
+                exec(`cp ${run_path}/assets/lockfocus.desktop ~/.config/autostart/`);
+            } else {
+                exec("rm ~/.config/autostart/lockfocus.desktop");
+            }
+        } else {
+            app.setLoginItemSettings(v);
+        }
+    });
+
+    // 守护进程
     new BrowserWindow({
         show: false,
     });

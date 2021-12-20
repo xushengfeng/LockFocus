@@ -23,6 +23,21 @@ body {
     font-family: "FiraCode Nerd Font Mono", Courier, monospace;
 }
 
+#autorun {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+}
+#autorun > input {
+    outline: none;
+}
+.autorun_h{
+    overflow: hidden;
+    height: 0;
+}
+
 #main {
     display: flex;
 }
