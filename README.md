@@ -5,3 +5,13 @@
 锁住电脑，不如锁住心
 
 享受无电脑可用的专注时间吧
+
+## 下载
+
+快速下载地址[Releases 1.0.0](https://github.com/xushengfeng/LockFocus/releases/tag/1.0.0)
+
+已经上传到AUR，ArchLinux用户可以
+
+```
+yay -S lockfocus
+```
