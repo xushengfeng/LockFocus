@@ -47,6 +47,20 @@
                         ],
                         "icon": "assets/icons/1024x1024.png"
                     }
+                },
+                {
+                    "name": "@electron-forge/maker-rpm",
+                    "config": {
+                        "name": "lockfocus",
+                        "productName": "LockFocus",
+                        "categories": [
+                            "Utility",
+                            "Education",
+                            "Office",
+                            "System"
+                        ],
+                        "icon": "assets/icons/1024x1024.png"
+                    }
                 }
             ]
         }
